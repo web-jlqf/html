@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo con picture</title>
+</head>
+<body>
+  <h1>Elemento picture con imágenes locales</h1>
+
+  <!-- Imagen responsive: cambia según el ancho de la pantalla -->
+  <picture>
+    <!-- Si el ancho es ≥ 800px, carga la imagen más grande -->
+    <source media="(min-width:800px)" srcset="paisaje3.jpg">
+    <!-- Si el ancho es ≥ 600px, carga la intermedia -->
+    <source media="(min-width:600px)" srcset="paisaje2.jpg">
+    <!-- Si el ancho es menor a 600px, usa esta como fallback -->
+    <img src="paisaje1.jpg" 
+         alt="Paisaje natural"
+         style="width:auto;">
+  </picture>
+</body>
+</html>
