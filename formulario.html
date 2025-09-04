@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo simple de formulario</title>
+  <script>
+    function getValores() {
+      // Obtener la opción seleccionada (radio)
+      const opcion = document.querySelector('input[name="opcion"]:checked');
+      const valorOpcion = opcion ? opcion.value : "Ninguna seleccionada";
+
+      // Obtener el resto de los valores
+      const numero = document.querySelector('input[type="number"]').value;
+      const fecha = document.querySelector('input[type="date"]').value;
+      const password = document.querySelector('input[type="password"]').value;
+      const email = document.querySelector('input[type="email"]').value;
+
+      // Construir mensaje
+      let mensaje = "📋 Valores del formulario:\n\n";
+      mensaje += "Opción elegida: " + valorOpcion + "\n";
+      mensaje += "Número: " + (numero || "No ingresado") + "\n";
+      mensaje += "Fecha: " + (fecha || "No ingresada") + "\n";
+      mensaje += "Contraseña: " + (password ? "********" : "No ingresada") + "\n";
+      mensaje += "Email: " + (email || "No ingresado");
+
+      // Mostrar en alerta
+      alert(mensaje);
+    }
+  </script>
+</head>
+<body>
+  <h1>Ejemplo simple de la etiqueta form</h1>
+  <p>Selecciona una de las opciones y llena los campos:</p>
+
+  <form action="javascript:getValores();">
+    <input type="radio" id="html" name="opcion" value="HTML">
+    <label for="html">HTML</label><br>
+
+    <input type="radio" id="css" name="opcion" value="CSS">
+    <label for="css">CSS</label><br>
+
+    <input type="radio" id="javascript" name="opcion" value="JavaScript">
+    <label for="javascript">JavaScript</label><br><br>
+
+    <input type="number" name="cajas" placeholder="p.e. 45"><br><br>
+    <input type="date" name="fecha"><br><br>
+    <input type="password" name="clave" placeholder="password"><br><br>
+    <input type="email" id="user-email" placeholder="p.e. jquiroz@izt.uam.mx" required><br><br>
+
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
